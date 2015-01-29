@@ -19,8 +19,18 @@ public class Employer {
         employees = new ArrayList<Employee>();
     }
     
-    public void hire(Employee e, String cubeId) {
+    public void hire(String firstName, String lastName, String ssn,
+            String cubeId) {
+        Employee e = new Employee(firstName, lastName, ssn);
         employees.add(e);
         e.moveIn(cubeId);
+    }
+    
+    public String getEmployeeStatus() {
+        StringBuilder sb = new StringBuilder();
+        for (Employee e : employees) {
+            sb.append(e.getFullName() + "'s status is: " + e.getStatus());
+        }
+        return sb.toString();
     }
 }

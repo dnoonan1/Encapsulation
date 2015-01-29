@@ -35,6 +35,10 @@ public class Employee {
         this.ssn = ssn;
     }
     
+    public String getFullName() {
+        return firstName + " " + lastName;
+    }
+    
     public Date getHireDate() {
         return hireDate;
     }
