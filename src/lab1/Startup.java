@@ -6,6 +6,7 @@ package lab1;
  * your instructor.
  *
  * @author      Jim Lombardo, WCTC Instructor
+ *              (edited by Dan Noonan)
  * @version     1.01
  */
 public class Startup {
@@ -19,14 +20,9 @@ public class Startup {
             may need to create a new class that talks to Employee. This does
             not have to be a GUI class.
         */
-        Employee employee = new Employee();
-        employee.firstName = "Peter";
-        employee.lastName = "Piper";
-        employee.ssn = "333-1234";
+        Employee employee = new Employee("Peter", "Piper", "333-1234");
         
-        employee.meetDepartmentStaff();
-        employee.meetWithHrForBenefitAndSalryInfo();
-        employee.reviewDeptPolicies();
+        employee.moveIn("D133");
 
         System.out.println("The employee's status is: " + employee.getStatus());
     }
