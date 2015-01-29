@@ -17,32 +17,48 @@ public class Employee {
     private String lastName;
     private String ssn;
     private Date birthDate;
-    private boolean metWithHr;
-    private boolean metDeptStaff;
-    private boolean reviewedDeptPolicies;
-    private boolean active;
+    //private boolean metWithHr;
+    //private boolean metDeptStaff;
+    //private boolean reviewedDeptPolicies;
     private String cubeId;
-    private Date currentDate;
+    private Date hireDate;
+    private boolean active;
 
     public Employee() {
-        currentDate = new Date();
+        hireDate = new Date();
     }
     
     public Employee(String firstName, String lastName, String ssn) {
-        currentDate = new Date();
+        hireDate = new Date();
         this.firstName = firstName;
         this.lastName = lastName;
         this.ssn = ssn;
     }
+    
+    public Date getHireDate() {
+        return hireDate;
+    }
+    
+    public void setHireDate(Date hireDate) {
+        this.hireDate = hireDate;
+    }
 
-    private String getCurrentDateString() {
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+    
+    private String getHireDateString() {
         SimpleDateFormat sdf = new SimpleDateFormat("M/d/yyyy");
-        return sdf.format(currentDate);
+        return sdf.format(hireDate);
     }
     
     // Assume this must be performed first
     private void meetWithHrForBenefitAndSalryInfo() {
-        System.out.println("Met with Hr on " + getCurrentDateString());
+        System.out.println("Met with Hr on " + getHireDateString());
         //metWithHr = true;
     }
 
@@ -57,7 +73,7 @@ public class Employee {
                     + "department staff until you have met with HR.");
         }*/
         System.out.println("Met with Dept. Staff on "
-                    + getCurrentDateString());
+                    + getHireDateString());
     }
 
     // Assume this must be performed third
@@ -72,7 +88,7 @@ public class Employee {
                     + "and then with department staff.");
         }*/
         System.out.println("Reviewed Dept. Policies on "
-                    + getCurrentDateString());
+                    + getHireDateString());
     }
 
     // Assume this must be performed 4th
@@ -89,7 +105,7 @@ public class Employee {
                     + "department policies.");
         }*/
         System.out.println("Moved into cube on "
-                    + getCurrentDateString());
+                    + getHireDateString());
         this.cubeId = cubeId;
     }
 
@@ -102,7 +118,7 @@ public class Employee {
     }
     
     public String getStatus() {
-        String fmtDate = getCurrentDateString();
+        String fmtDate = getHireDateString();
         if(active) {
             return "Orientation is completed on: " + fmtDate;
         } else {
